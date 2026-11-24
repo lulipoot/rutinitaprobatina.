@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#202321"><title>Mi rutina · Fitness</title>
+<style>
+:root{--bg:#171a19;--panel:#242927;--panel2:#2d3330;--mint:#91efd6;--lav:#c8b8ff;--white:#f6f7f5;--muted:#aab4ae;--line:#3b4540}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font:15px/1.45 Inter,system-ui,-apple-system,Segoe UI,sans-serif;padding-bottom:92px}button,input{font:inherit}.wrap{max-width:980px;margin:auto;padding:22px 18px 40px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-weight:900;letter-spacing:.16em;font-size:12px;color:var(--mint)}.avatar{background:var(--lav);color:#201b2b;border-radius:50%;width:40px;height:40px;display:grid;place-items:center;font-weight:900}.hero{margin:28px 0 22px}.eyebrow{color:var(--mint);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.hero h1{font-size:clamp(34px,7vw,58px);line-height:.98;margin:10px 0}.hero h1 span{color:var(--mint)}.sub{color:var(--muted);max-width:520px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:16px}.stat b{font-size:25px;display:block}.stat small{color:var(--muted)}.progress{height:8px;background:#414944;border-radius:20px;overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;background:var(--mint);width:0%;border-radius:20px;transition:width .2s}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:28px 0 12px}.sectionhead h2{font-size:21px;margin:0}.sectionhead small{color:var(--muted)}.days{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.day{border:1px solid var(--line);background:var(--panel);color:var(--white);border-radius:15px;padding:13px 8px;text-align:left;cursor:pointer}.day strong{display:block;font-size:13px}.day span{font-size:11px;color:var(--muted)}.day.active{background:var(--mint);color:#15201c;border-color:var(--mint)}.day.active span{color:#334b42}.workouthead{display:flex;justify-content:space-between;align-items:center;margin:22px 0 12px}.workouthead h2{font-size:25px;margin:0}.pill{background:#353d39;color:var(--mint);padding:6px 10px;border-radius:99px;font-size:11px;font-weight:800}.exercise{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:15px;margin:10px 0}.ex-top{display:flex;gap:12px;align-items:flex-start}.check{width:23px;height:23px;accent-color:var(--mint);flex:none;margin-top:2px}.exname{font-weight:800;flex:1}.meta{display:flex;flex-wrap:wrap;gap:7px;margin:9px 0 0 35px}.tag{background:#343c38;color:#dce5df;border-radius:8px;padding:5px 8px;font-size:11px}.weights{margin:12px 0 0 35px;padding:10px 12px;border-radius:12px;background:#1d2421;display:flex;justify-content:space-between;align-items:center;gap:10px}.weights label{font-size:11px;color:var(--muted)}.weights input{width:125px;max-width:45%;background:#303a35;border:1px solid #4c5b52;color:var(--mint);border-radius:8px;padding:7px 9px;text-align:right;font-weight:800}.note{margin:12px 0 0 35px;color:var(--muted);font-size:12px}.footer-note{background:#242927;border:1px solid var(--line);border-radius:18px;padding:16px;margin-top:22px;color:var(--muted);font-size:13px}.footer-note b{color:var(--lav)}.bottom{position:fixed;bottom:0;left:0;right:0;background:#202522ee;backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:12px 18px;display:flex;justify-content:center;gap:28px;color:var(--muted);font-size:11px}.bottom span:first-child{color:var(--mint)}.reset{border:0;background:transparent;color:var(--muted);font-size:12px;text-decoration:underline;cursor:pointer}
+@media(max-width:560px){.wrap{padding:18px 14px 30px}.stats{gap:7px}.stat{padding:12px}.stat b{font-size:21px}.days{gap:6px}.day{padding:11px 6px}.day strong{font-size:12px}.day span{font-size:10px}.exercise{padding:13px}.weights{margin-left:0}.note{margin-left:0}.meta{margin-left:0}}
+
+.nutrition{display:none}.nutrition.visible{display:block}.training.hidden{display:none}
+.tabs{display:flex;gap:8px;margin:18px 0 22px}.tab{flex:1;border:1px solid var(--line);background:var(--panel);color:var(--white);border-radius:13px;padding:12px 8px;font-weight:800;cursor:pointer}.tab.active{background:var(--mint);color:#15201c;border-color:var(--mint)}
+.nutri-hero{background:linear-gradient(135deg,#26352f,#29243a);border:1px solid var(--line);border-radius:22px;padding:18px;margin:16px 0}.nutri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}.macro{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:13px}.macro b{font-size:22px;display:block}.macro small{color:var(--muted)}.meal{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;margin:11px 0}.meal h3{margin:0 0 7px;font-size:17px}.meal p{margin:7px 0;color:var(--muted);font-size:13px}.meal ul{padding-left:19px;margin:8px 0}.meal li{margin:5px 0}.meal .meal-macros{color:var(--mint);font-size:12px;font-weight:800;margin-top:10px}.alt{border-top:1px solid var(--line);margin-top:12px;padding-top:11px}.alt b{color:var(--lav)}.portion{color:var(--mint);font-weight:700}.disclaimer{font-size:12px;color:var(--muted);background:#1e2421;padding:13px;border-radius:13px;margin-top:14px}
+@media(max-width:560px){.nutri-grid{gap:6px}.macro{padding:10px}.macro b{font-size:19px}.tabs{position:sticky;top:0;z-index:4;background:var(--bg);padding:8px 0}}
+</style></head>
+<body><main class="wrap">
+<header class="top"><div><div class="brand">MY FITNESS · TRAINING CLUB</div><div style="font-size:11px;color:var(--muted);margin-top:3px">TU PLAN PERSONAL</div></div><div class="avatar">M</div></header>
+<section class="hero"><div class="eyebrow">Disciplina · Fuerza · Evolución</div><h1>Tu rutina.<br><span>Tu progreso.</span></h1><p class="sub">Cuatro sesiones, de lunes a jueves. Marca tus ejercicios, registra los kilos y sigue tu evolución semana a semana.</p></section>
+
+<div class="tabs" role="tablist" aria-label="Secciones del plan">
+<button class="tab active" id="trainingTab" type="button">🏋️ Rutina</button>
+<button class="tab" id="nutritionTab" type="button">🥑 Nutrición</button>
+</div>
+<div class="training" id="trainingSection">
+<section class="stats"><div class="stat"><b id="done">0/0</b><small>Ejercicios hechos</small><div class="progress"><i id="bar"></i></div></div><div class="stat"><b>4</b><small>Días de entrenamiento</small></div><div class="stat"><b>40″</b><small>Descanso habitual</small></div></section>
+<div class="sectionhead"><h2>Tu semana</h2><small>Lunes — Jueves</small></div><nav class="days" id="days"></nav>
+<div class="workouthead"><div><div class="eyebrow" id="daylabel">LUNES</div><h2 id="title">Piernas · Espalda</h2></div><span class="pill" id="count">0 EJERCICIOS</span></div>
+<div id="list"></div>
+<div class="footer-note"><b>Progresión del plan</b><p>Semana 3: bajar 2 repeticiones y subir 1 serie. Semana 5: bajar 4 repeticiones y aumentar el peso y los descansos en cada cambio.</p><p>Prioriza la técnica, mantén la hidratación y aumenta las cargas progresivamente. Los pesos anotados a mano se muestran como escalones de progresión; puedes editar el peso actual en cada ficha.</p></div>
+<div style="display:flex;justify-content:flex-end;margin-top:12px"><button class="reset" id="reset">Reiniciar marcas de ejercicios</button></div>
+</main>
+</div>
+<section class="nutrition" id="nutritionSection">
+  <div class="eyebrow">Nutrition · Definición sostenible</div>
+  <h1 style="font-size:clamp(30px,6vw,46px);margin:8px 0">Come para <span style="color:var(--mint)">rendir.</span></h1>
+  <p class="sub">Plan flexible basado en tus comidas habituales. Objetivo: perder grasa gradualmente, conservar músculo y seguir progresando en fuerza.</p>
+  <div class="nutri-hero">
+    <div class="eyebrow">Punto de partida estimado</div>
+    <div style="display:flex;align-items:baseline;gap:8px;margin:8px 0"><strong style="font-size:38px;color:var(--mint)">1.650–1.700</strong><span>kcal / día</span></div>
+    <div style="color:var(--muted);font-size:12px">Mujer · 30 años · 170 cm · 60 kg · trabajo sedentario · fuerza 4 días/semana</div>
+    <p style="font-size:13px;margin-bottom:0">Déficit pequeño y ajustable. No buscamos bajar rápido ni sacrificar rendimiento.</p>
+  </div>
+  <div class="sectionhead"><h2>Macros diarios</h2><small>Objetivo orientativo</small></div>
+  <div class="nutri-grid">
+    <div class="macro"><b style="color:var(--mint)">120 g</b><small>Proteína</small></div>
+    <div class="macro"><b style="color:var(--lav)">175 g</b><small>Hidratos</small></div>
+    <div class="macro"><b style="color:#f3c77b">55 g</b><small>Grasas</small></div>
+  </div>
+  <div class="progress" style="height:11px"><i style="width:29%;background:var(--mint)"></i></div>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:8px"><span>● Proteína 29%</span><span style="color:var(--lav)">● Hidratos 42%</span><span style="color:#f3c77b">● Grasas 29%</span></div>
+  <p class="disclaimer">Las calorías son una estimación inicial: el gasto real depende de pasos diarios, intensidad del entrenamiento y actividad espontánea. Revisa la evolución durante 3–4 semanas antes de cambiar cantidades.</p>
+
+  <div class="sectionhead"><h2>01 · Desayuno</h2><small>25–30 g proteína</small></div>
+  <article class="meal">
+    <h3>Tu desayuno habitual</h3>
+    <ul><li>Pan integral: <span class="portion">70–80 g</span> (2 tostadas).</li><li>Pechuga de pavo cocida: <span class="portion">80–100 g</span>; elige una con alto porcentaje de carne y poca sal.</li><li>Tomate natural: <span class="portion">100 g</span>.</li><li>Café con leche: <span class="portion">150–200 ml</span> de leche.</li><li>Creatina monohidrato: <span class="portion">3–5 g</span> cada día.</li></ul>
+    <p class="meal-macros">Aprox. 27 g proteína · 40 g hidratos · 7 g grasa</p>
+    <div class="alt"><b>Alternativa de fin de semana · Porridge</b><p>Avena 40 g + leche 200 ml + skyr natural 100 g + uvas 80 g + nueces 10 g. Aporta proteína adicional y mantiene tu desayuno dulce.</p></div>
+    <div class="alt"><b>Otra alternativa</b><p>Yogur tipo skyr 200 g + avena 30 g + plátano pequeño + 10 g de crema de cacahuete.</p></div>
+  </article>
+
+  <div class="sectionhead"><h2>02 · Almuerzo</h2><small>Media mañana</small></div>
+  <article class="meal">
+    <h3>Kéfir + fruta</h3>
+    <ul><li>Kéfir natural: <span class="portion">200 g</span>.</li><li>Una pieza de fruta mediana: manzana, pera, kiwi, naranja o plátano pequeño.</li></ul>
+    <p class="meal-macros">Aprox. 7–10 g proteína · 25–30 g hidratos</p>
+    <div class="alt"><b>Alternativas</b><p>Skyr natural 150–170 g + fruta; o queso fresco batido 0–2% 150 g + frutos rojos. Si tienes más hambre, añade 10 g de almendras.</p></div>
+  </article>
+
+  <div class="sectionhead"><h2>03 · Comida</h2><small>35–40 g proteína</small></div>
+  <article class="meal">
+    <h3>Cómo montar el plato</h3>
+    <p>Elige una fuente principal de hidratos, una de proteína, verduras y una grasa saludable. Las cantidades de arroz y pasta son en seco; patata y legumbres, cocidas/escurridas.</p>
+    <ul><li>Arroz: <span class="portion">55–65 g en seco</span>, o patata <span class="portion">220–280 g</span>, o pasta de garbanzo/lenteja <span class="portion">65–75 g en seco</span>.</li><li>Pollo: <span class="portion">130–150 g cocinado</span>; o atún al natural <span class="portion">100–120 g escurrido</span> + 1 huevo.</li><li>Verduras: <span class="portion">200 g o más</span>.</li><li>Aceite de oliva: <span class="portion">5–10 g</span>.</li><li>Fruta: 1 pieza, si te apetece.</li></ul>
+    <p class="meal-macros">Objetivo orientativo: 35–40 g proteína · 50–65 g hidratos · 12–18 g grasa</p>
+  </article>
+  <article class="meal">
+    <h3>Alternativas para rotar comidas</h3>
+    <div class="alt"><b>A · Pollo con arroz</b><p>Arroz 60 g en seco + pollo 140 g cocinado + verduras 200 g + aceite 5 g.</p></div>
+    <div class="alt"><b>B · Patata, atún y huevo</b><p>Patata 250 g + atún 100–120 g escurrido + 1 huevo + ensalada + aceite 5 g. Si usas dos latas, ajusta el resto de proteína del plato.</p></div>
+    <div class="alt"><b>C · Pasta de legumbres</b><p>Pasta de garbanzo o lenteja roja 70 g en seco + tomate natural + verduras + atún 80–100 g. La pasta de legumbres ya aporta bastante proteína.</p></div>
+    <div class="alt"><b>D · Caldo completo</b><p>Caldo de pollo 300–400 ml + garbanzos 100 g cocidos + fideos 30–35 g en seco + huevo duro + pollo desmenuzado 70–80 g.</p></div>
+    <div class="alt"><b>E · Ensalada de garbanzos o lentejas</b><p>Legumbre 140–160 g cocida + atún 80 g o 1 huevo y 100 g de claras + tomate, pimiento, pepino y aceite 5 g.</p></div>
+    <div class="alt"><b>F · Otra opción sencilla</b><p>Quinoa 60 g en seco + 120–140 g de pechuga de pavo o pollo + verduras salteadas.</p></div>
+  </article>
+
+  <div class="sectionhead"><h2>04 · Cena</h2><small>30–35 g proteína</small></div>
+  <article class="meal">
+    <h3>Alternativas de cenas</h3>
+    <p>Combina proteína, verduras y una porción moderada de hidratos. En días de pierna o si entrenas por la tarde, mantén la ración de patata o pan.</p>
+    <div class="alt"><b>A · Guisantes salteados con jamón</b><p>Guisantes 180–200 g + jamón 40–50 g + 1 huevo y 100 g de claras. Añade 40 g de pan integral si necesitas más energía.</p></div>
+    <div class="alt"><b>B · Hamburguesa de pollo</b><p>Hamburguesa de pollo 130–150 g + verduras 250 g + patata asada 150–200 g + aceite 5 g.</p></div>
+    <div class="alt"><b>C · Lomo con verduras</b><p>Lomo magro 130–150 g + verduras 250 g + patata 150 g o pan integral 40 g + aceite 5 g.</p></div>
+    <div class="alt"><b>D · Boquerones</b><p>Boquerones 150–170 g + verduras 250 g + patata cocida 150–200 g. Preferir al horno o plancha.</p></div>
+    <div class="alt"><b>E · Tosta de sardinas</b><p>Pan integral 60–70 g + sardinas escurridas 90–100 g + tomate + ensalada. Si son en aceite, cuenta ese aceite y no añadas mucho más.</p></div>
+    <div class="alt"><b>F · Tortilla y ensalada</b><p>Tortilla de 2 huevos + 100 g de claras con champiñones/espinacas + pan integral 40–50 g.</p></div>
+    <div class="alt"><b>G · Pescado blanco</b><p>Merluza, bacalao o pescadilla 160–180 g + verduras 250 g + boniato 180 g + aceite 5 g.</p></div>
+    <div class="alt"><b>H · Ensalada templada</b><p>Garbanzos 100 g cocidos + pollo 100 g + verduras variadas + yogur natural con limón como salsa.</p></div>
+  </article>
+
+  <div class="sectionhead"><h2>05 · Ajustes y hábitos</h2><small>Para sostener el progreso</small></div>
+  <article class="meal">
+    <ul><li><b>Creatina:</b> 3–5 g diarios, también en descanso.</li><li><b>Agua:</b> bebe regularmente; como referencia, 1,8–2,3 L al día y más si sudas o hace calor.</li><li><b>Proteína:</b> reparte 25–35 g en las comidas principales.</li><li><b>Verduras y fruta:</b> procura variedad y fibra cada día.</li><li><b>Flexibilidad:</b> puedes intercambiar comidas y cenas manteniendo porciones similares.</li></ul>
+    <p class="disclaimer">Para valorar si el déficit es adecuado, observa fuerza, energía, hambre, recuperación y tendencia del peso (promedio semanal), además de medidas. Si baja el rendimiento, hay fatiga persistente o el peso cae rápidamente, aumenta la ingesta y consulta con un profesional. No hace falta compensar comidas ni restringir hidratos en días de descanso.</p>
+  </article>
+</section>
+
+<nav class="bottom"><span>⌂ INICIO</span><span>▦ RUTINA</span><span>◉ PROGRESO</span><span>♧ PERFIL</span></nav>
+<script>
+const workouts=[
+{day:'Lunes',short:'LUN',title:'Piernas · Espalda · Abdomen',items:[
+['Sentadillas en máquina','3 × 12','40 s','40 → 50 → 60 kg'],['Extensión de cuádriceps','3 × 12','40 s','60 → 70 → 80 kg'],['Sentadillas sumo','3 × 12','40 s','40 → 50 → 60 → 70 kg'],['Jalón al pecho','3 × 12','40 s','Progresión anotada: 30 / 35 / 40 kg (primer apunte poco legible)'],['Pullover','3 × 12','40 s','12 → 15 → 17,5 kg'],['Remo en punta','3 × 12','40 s','Anotación: 20 × 4 × 8 (confirmar formato)'],['Planchas','4 × 1 min','40 s','Sin peso'],['Tijeras','4 × 30 s','40 s','Sin peso']]},
+{day:'Martes',short:'MAR',title:'Hombro · Cardio',items:[
+['Elevación lateral','3 × 12','40 s','5 kg'],['Elevación frontal','3 × 12','40 s','4 → 5 kg'],['Press militar','3 × 12','40 s','8 → 10 kg (anotación poco clara)'],['Hombro posterior','3 × 12','40 s','12 → 15 → 17,5 → 21 kg'],['Cinta','15 min · 3 series','—','Alternar caminar y correr'],['Kettlebell swing','3 × 12','40 s','12 → 18/20 kg (último apunte poco claro)'],['Escaladoras','4 × 40 s','20 s','Sin peso'],['Abdomen (2 ejercicios)','4 × 15','30 s','Elegir 2 ejercicios']]},
+{day:'Miércoles',short:'MIÉ',title:'Tríceps · Piernas',items:[
+['Tríceps tras nuca','3 × 12','40 s','8 → 10 → 12 kg'],['Extensión de tríceps en polea','3 × 12','40 s','10 → 12 kg'],['Tríceps con barra','3 × 12','40 s','10 → 12,5 kg'],['Femoral sentado','3 × 12','40 s','25 → 30 → 35 → 40 kg'],['Peso muerto','3 × 12','40 s','Progresión manuscrita poco legible; revisar'],['Búlgaras','3 × 12','40 s','8 → 10 kg'],['Cinta','15 min · 3 series','—','Alternar caminar y correr']]},
+{day:'Jueves',short:'JUE',title:'Bíceps · Glúteo',items:[
+['Bíceps barra Z (5 en máquina)','3 × 12','40 s','12,5 → 15 kg'],['Bíceps martillo','3 × 12','40 s','5 → 6 kg'],['Bíceps polea alta','3 × 12','40 s','5 → 7,5 → 9 kg (apunte final poco claro)'],['Abducción en máquina','3 × 12','40 s','45 → 50 kg'],['Aducción en máquina','3 × 12','40 s','40 → 45 → 50 kg'],['Elevación de cadera','3 × 12','40 s','70 kg'],['Patada de glúteo','3 × 12','40 s','9 → 12 → 15 kg'],['Abdomen (3 ejercicios a elegir)','3 × 15','30 s','Elegir 3 ejercicios']]}];
+let current=0;const key='miRutinaFitnessV1';let saved=JSON.parse(localStorage.getItem(key)||'{}');
+function render(){const nav=document.getElementById('days');nav.innerHTML=workouts.map((w,i)=>`<button class="day ${i===current?'active':''}" data-i="${i}"><strong>${w.day}</strong><span>${w.title.split('·')[0].trim()}</span></button>`).join('');nav.querySelectorAll('button').forEach(b=>b.onclick=()=>{current=+b.dataset.i;render()});const w=workouts[current];document.getElementById('daylabel').textContent=w.day.toUpperCase();document.getElementById('title').textContent=w.title;document.getElementById('count').textContent=w.items.length+' EJERCICIOS';document.getElementById('list').innerHTML=w.items.map((e,i)=>{const id=current+'-'+i;const s=saved[id]||{};return `<article class="exercise"><div class="ex-top"><input class="check" type="checkbox" data-id="${id}" ${s.done?'checked':''} aria-label="Marcar ${e[0]}"><div class="exname">${e[0]}</div></div><div class="meta"><span class="tag">${e[1]} series / reps</span><span class="tag">Descanso ${e[2]}</span></div><div class="weights"><label>PROGRESIÓN DE PESO<br><span style="color:var(--mint)">${e[3]}</span></label><input data-weight="${id}" value="${s.weight??''}" placeholder="Peso actual" aria-label="Peso actual"></div></article>`}).join('');document.querySelectorAll('[data-id]').forEach(c=>c.onchange=()=>{saved[c.dataset.id]={...(saved[c.dataset.id]||{}),done:c.checked};persist()});document.querySelectorAll('[data-weight]').forEach(inp=>inp.onchange=()=>{saved[inp.dataset.weight]={...(saved[inp.dataset.weight]||{}),weight:inp.value};persist()});updateStats()}
+function persist(){localStorage.setItem(key,JSON.stringify(saved));updateStats()}function updateStats(){let total=0,done=0;workouts.forEach((w,di)=>w.items.forEach((_,i)=>{total++;if(saved[di+'-'+i]?.done)done++}));document.getElementById('done').textContent=done+'/'+total;document.getElementById('bar').style.width=(done/total*100)+'%'}
+document.getElementById('reset').onclick=()=>{if(confirm('¿Reiniciar todas las marcas de ejercicios? Se conservarán los pesos registrados.')){Object.keys(saved).forEach(k=>saved[k].done=false);persist();render()}};
+const trainingTab=document.getElementById('trainingTab'),nutritionTab=document.getElementById('nutritionTab');
+trainingTab.onclick=()=>{trainingTab.classList.add('active');nutritionTab.classList.remove('active');document.getElementById('trainingSection').classList.remove('hidden');document.getElementById('nutritionSection').classList.remove('visible')};
+nutritionTab.onclick=()=>{nutritionTab.classList.add('active');trainingTab.classList.remove('active');document.getElementById('trainingSection').classList.add('hidden');document.getElementById('nutritionSection').classList.add('visible');window.scrollTo({top:0,behavior:'smooth'})};
+render();
+</script></body></html>
